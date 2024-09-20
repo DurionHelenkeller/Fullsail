@@ -1,5 +1,4 @@
-def make_pizza(size, *toppings):
-    """Summarize the pizza we are about to make."""
-    print(f"\nMaking a {size}-inch pizza with the following toppings:")
-    for topping in toppings:
-        print(f"- {topping}")
+import making_pizzas
+
+making_pizzas.make_pizza(12, "cheese")
+making_pizzas.make_pizza(16, "pepperoni", "hawaiian", "mushroom")
