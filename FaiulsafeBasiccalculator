@@ -1,0 +1,35 @@
+# Andres Martin, Milestone 3 September 20, 2024
+
+print("Welcome to the Basic Calculator function!")
+
+
+def calculator():
+    keep_going = 'y'
+    while keep_going == 'y':
+        equator = input("Please enter the equator:\n")
+        num1 = int(input("Please enter the first number:\n"))
+        num2 = int(input("Please enter the second number:\n"))
+
+        if equator == "+":
+            def calculator_addition(num1, num2):
+                return num1 + num2
+            print(calculator_addition(num1, num2))
+                
+        
+        if equator == "-":
+            def calculator_subtraction(num1, num2):
+                return num1 - num2
+            print(calculator_subtraction(num1, num2))
+
+        if equator == "*":
+            def calculator_multiplying(num1, num2):
+                return num1 * num2
+            print(calculator_multiplying(num1, num2))
+                
+        if equator == "/":
+            def calculator_division(num1, num2):
+                return num1 / num2
+            print(calculator_division(num1, num2))
+            
+
+        keep_going = input("Do you have another equation to calculate? Enter y for yes. Enter any other key to exit.")
