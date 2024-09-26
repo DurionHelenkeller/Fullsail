@@ -14,7 +14,6 @@ while True:
     print(f"Thanks {name}, we'll add you to the guest book.")
     guest_names.append(name)
 
-# Build a string where "\n" is added after each name.
 file_string = ''
 for name in guest_names:
     file_string += f"{name}\n"
