@@ -1,0 +1,15 @@
+# Andres Martin, September 27 2024
+
+# Step 4 - With statment to open "states.txt" in read mode
+with open("states.txt", "r") as file:
+
+# Step 5 - state_capitals empty dictionary
+    state_capitals = {}
+
+# Step 6 - For loop each state and capital
+    for line in file:
+        state, capital = line.strip().split(",")
+        state_capitals[state.strip()] = capital.strip()
+
+
+    print(state_capitals)
