@@ -1,7 +1,20 @@
 #httpd.yml
 ---
 
-- name: Install MySQL server
+ 
+- hosts: rocky9
+  tasks:
+
+  - name: Remove Apache
+    yum: name=httpd state=absent
+
+  - name: install latest Apache
+    yum: name=httpd state=latest
+
+  - name: Start Apache and enable it on boot
+    service: name=httpd state=started enabled=yes
+
+  - name: Install MySQL server
     yum: 
       name: mysql-server
       state: present
@@ -20,9 +33,12 @@
   - name: Install PHP MySQL extension
     yum:
       name: php-mysql
-      state: present 
-  
-  - name: Restart Apache service 
-    service: 
-      name: httpd
-      state: restarted 
+      state: present
+  - name: Disable firewalld
+    service: name=firewalld state=stopped enabled=no
+
+  - name: Restart VM
+    shell: sleep 2 && shutdown -r now "Ansible reboot"
+    async: 1
+    poll: 0
+    ignore_errors: true
