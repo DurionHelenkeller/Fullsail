@@ -1,0 +1,28 @@
+#httpd.yml
+---
+
+- name: Install MySQL server
+    yum: 
+      name: mysql-server
+      state: present
+      
+  - name: Start and enable MySQL service
+    service:
+      name: mysqld
+      state: started
+      enabled: yes
+    
+  - name: Install PHP 
+    yum: 
+      name: php
+      state: present
+      
+  - name: Install PHP MySQL extension
+    yum:
+      name: php-mysql
+      state: present 
+  
+  - name: Restart Apache service 
+    service: 
+      name: httpd
+      state: restarted 
